@@ -1,0 +1,22 @@
+plugins {
+    id 'com.github.johnrengelman.shadow' version "7.0.0"
+    id 'application'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation fileTree(dir: 'lib', include: ['*.jar'])
+    testImplementation 'junit:junit:4.13.2'
+}
+
+application {
+    mainClass = 'mdemo.App'
+}
+
+shadowJar {
+    archiveClassifier.set('')
+    mergeServiceFiles()
+}
